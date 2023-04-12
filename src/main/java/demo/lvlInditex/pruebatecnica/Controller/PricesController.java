@@ -1,15 +1,12 @@
-package demo.lvlInditex.pruebatecnica.Model.Controller;
+package demo.lvlInditex.pruebatecnica.Controller;
 
 
 import demo.lvlInditex.pruebatecnica.Model.Entities.Prices;
-import demo.lvlInditex.pruebatecnica.Model.Repositories.PricesRepository;
 import demo.lvlInditex.pruebatecnica.Services.PriceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Time;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;

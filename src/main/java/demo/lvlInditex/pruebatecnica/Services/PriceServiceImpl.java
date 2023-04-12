@@ -1,18 +1,14 @@
 package demo.lvlInditex.pruebatecnica.Services;
 
 import demo.lvlInditex.pruebatecnica.Model.Entities.Prices;
-import demo.lvlInditex.pruebatecnica.Model.Repositories.PricesRepository;
+import demo.lvlInditex.pruebatecnica.Model.Entities.Repositories.PricesRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 import static java.util.Arrays.stream;
 
