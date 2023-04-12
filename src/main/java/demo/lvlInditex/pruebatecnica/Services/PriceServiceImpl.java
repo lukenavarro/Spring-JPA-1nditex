@@ -1,7 +1,7 @@
 package demo.lvlInditex.pruebatecnica.Services;
 
 import demo.lvlInditex.pruebatecnica.Model.Entities.Prices;
-import demo.lvlInditex.pruebatecnica.Model.Entities.Repositories.PricesRepository;
+import demo.lvlInditex.pruebatecnica.Model.Repositories.PricesRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
