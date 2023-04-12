@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+import static java.util.Arrays.stream;
+
 @Service
 @RequiredArgsConstructor
 public class PriceServiceImpl implements PriceService {
@@ -21,8 +23,11 @@ public class PriceServiceImpl implements PriceService {
     @Override
     public Optional<Prices> findByCustomQuery(LocalDateTime hora) {
         List<Prices> priceList = pricesRepository.findByCustomQuery(hora);
-        priceList.sort(Comparator.comparing(Prices::getPriority));
-        return Optional.ofNullable(priceList.get(0));
+        //Opcion de ordenar la lista y tomar la 1º posicion
+        //priceList.sort(Comparator.comparing(Prices::getPriority));
+        //return Optional.ofNullable(priceList.get(0));
+        //Devolver directamente un Optional obteniendo el valor maximo de la lista
+        return priceList.stream().max(Comparator.comparing(Prices::getPriority));
     }
     public List<Prices> getPrices(){
         return pricesRepository.findAll();
