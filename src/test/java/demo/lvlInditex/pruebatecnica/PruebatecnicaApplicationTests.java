@@ -1,35 +1,42 @@
 package demo.lvlInditex.pruebatecnica;
 
-import demo.lvlInditex.pruebatecnica.Controller.PricesController;
-import demo.lvlInditex.pruebatecnica.Services.PriceService;
+import demo.lvlInditex.pruebatecnica.Infrastracture.Controllers.PricesController;
+import demo.lvlInditex.pruebatecnica.Infrastracture.DTO.PricesDTO;
+import demo.lvlInditex.pruebatecnica.domain.UseCase.PricesService;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
-import static org.hamcrest.Matchers.is;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 
-@RunWith(SpringRunner.class)
-@WebMvcTest(PricesController.class)
+@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 class PruebatecnicaApplicationTests {
-	@Autowired
-	private MockMvc mvc;
-	@MockBean
-	private PriceService priceService;
-	@Test
-	void contextLoads() throws Exception{
 
-		mvc.perform(post("/api/prices/hora?hora=2020-07-14 15:00:00").contentType(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk())
-				.andExpect(jsonPath("$[0].id").value(4));
+	@InjectMocks
+	private PricesController pricesController;
+	@Mock
+	private PricesService pricesService;
+
+
+	@Test
+	void contextLoads() {
+		ArrayList<PricesDTO> listaVacia = new ArrayList<>();
+		LocalDateTime t1 = LocalDateTime.parse("2020-07-14T15:00:00");
+		when(pricesService.getPriceIntoHours(any())).thenReturn(listaVacia);
+		ResponseEntity<List<PricesDTO>> re1 = pricesController.getByHourInterval(t1);
+		assertEquals(re1.getStatusCodeValue(),404);
 	}
 
 }
