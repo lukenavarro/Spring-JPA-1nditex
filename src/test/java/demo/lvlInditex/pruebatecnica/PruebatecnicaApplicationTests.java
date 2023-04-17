@@ -1,6 +1,6 @@
 package demo.lvlInditex.pruebatecnica;
 
-import demo.lvlInditex.pruebatecnica.Infrastracture.Controllers.PricesController;
+import demo.lvlInditex.pruebatecnica.Infrastracture.Controllers.PricesControllerImpl;
 import demo.lvlInditex.pruebatecnica.Infrastracture.DTO.PricesDTO;
 import demo.lvlInditex.pruebatecnica.domain.UseCase.PricesService;
 import org.junit.jupiter.api.Test;
@@ -11,7 +11,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +24,7 @@ import static org.mockito.Mockito.when;
 class PruebatecnicaApplicationTests {
 
 	@InjectMocks
-	private PricesController pricesController;
+	private PricesControllerImpl pricesController;
 	@Mock
 	private PricesService pricesService;
 

@@ -15,7 +15,7 @@ public class SwaggerConfig {
 
     private static final String TITLE = "Demo API";
     private static final String DESCRIPTION = "API creada para una demo";
-    private static final String BASE_PACKAGE = "demo.lvlInditex.pruebatecnica.Infrastracture.Controllers.PricesController";
+    private static final String BASE_PACKAGE = "demo.lvlInditex.pruebatecnica.Infrastracture.Controllers";
     private static final String VERSION = "v1";
 
     @Bean
