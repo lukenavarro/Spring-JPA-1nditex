@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class RepositoryUnitaryTest {
     @InjectMocks
-    private H2PricesRepository H2pricesRepository;
+    private H2PricesRepository h2PricesRepository;
 
     @Mock
     private PricesRepository pricesRepository;
@@ -39,7 +39,7 @@ class RepositoryUnitaryTest {
         ArrayList<PricesDAO> emptyList = new ArrayList<>();
         LocalDateTime time = LocalDateTime.parse("2002-05-05T21:00:00");
         when(pricesRepository.findByHourIntoRange(time)).thenReturn(emptyList);
-        assertEquals(emptyList,pricesRepository.findByHourIntoRange(time));
+        assertEquals(emptyList, h2PricesRepository.findByHourIntoRange(time));
     }
     @Test
     void shouldWorkCauseListWithResult(){
@@ -47,6 +47,6 @@ class RepositoryUnitaryTest {
         listResult.add(pricesDAO);
         LocalDateTime time = LocalDateTime.parse("2020-07-15T19:05:06");
         when(pricesRepository.findByHourIntoRange(time)).thenReturn(listResult);
-        assertEquals(listResult,pricesRepository.findByHourIntoRange(time));
+        assertEquals(listResult,h2PricesRepository.findByHourIntoRange(time));
     }
 }

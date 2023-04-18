@@ -1,5 +1,6 @@
 package demo.lvlInditex.pruebatecnica.Infrastracture.Controllers;
 
+import demo.lvlInditex.pruebatecnica.Infrastracture.DAO.PricesDAO;
 import demo.lvlInditex.pruebatecnica.Infrastracture.DTO.PricesDTO;
 import org.springframework.http.ResponseEntity;
 
@@ -8,4 +9,5 @@ import java.util.List;
 
 public interface PricesController {
     ResponseEntity<List<PricesDTO>> getByHourInterval(LocalDateTime hour);
+    PricesDTO addNewPrices(PricesDTO pricesDTO);
 }

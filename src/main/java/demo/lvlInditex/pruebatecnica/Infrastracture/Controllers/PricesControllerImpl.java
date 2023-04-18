@@ -1,5 +1,6 @@
 package demo.lvlInditex.pruebatecnica.Infrastracture.Controllers;
 
+import demo.lvlInditex.pruebatecnica.Infrastracture.DAO.PricesDAO;
 import demo.lvlInditex.pruebatecnica.Infrastracture.DTO.PricesDTO;
 import demo.lvlInditex.pruebatecnica.domain.UseCase.PricesService;
 import lombok.AllArgsConstructor;
@@ -23,6 +24,10 @@ public class PricesControllerImpl implements PricesController{
             return new ResponseEntity<>(list, HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+    @PostMapping("/prices")
+    public PricesDTO addNewPrices(@RequestBody PricesDTO pricesDTO){
+        return pricesService.addNewPrices(pricesDTO);
     }
 
 
