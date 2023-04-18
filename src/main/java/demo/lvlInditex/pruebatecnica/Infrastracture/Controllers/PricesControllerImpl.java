@@ -18,8 +18,8 @@ import java.util.List;
 public class PricesControllerImpl implements PricesController{
     private final PricesService pricesService;
     @GetMapping("/prices/hour")
-    public ResponseEntity<List<PricesDTO>> getByHourInterval(@RequestParam("hour") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime hour){
-        List<PricesDTO> list = pricesService.getPriceIntoHours(hour);
+    public ResponseEntity<List<PricesDTO>> getByHourInterval(@RequestParam("hour") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime hour,@RequestParam("brandID") Long brandID,@RequestParam("productID") Long productID){
+        List<PricesDTO> list = pricesService.getPriceIntoHours(hour,brandID,productID);
         if(list.isEmpty()){
             return new ResponseEntity<>(list, HttpStatus.NOT_FOUND);
         }

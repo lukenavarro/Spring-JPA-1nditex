@@ -6,6 +6,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface PricesRepositoryOut {
-    List<PricesDAO> findByHourIntoRange(LocalDateTime hour);
+    List<PricesDAO> findByHourIntoRange(LocalDateTime hour,Long brandID,Long productID);
 
 }

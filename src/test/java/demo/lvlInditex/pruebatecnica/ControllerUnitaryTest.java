@@ -40,8 +40,8 @@ class ControllerUnitaryTest {
 	void shouldNotWorkCauseEmptyList() {
 		ArrayList<PricesDTO> emptyList = new ArrayList<>();
 		LocalDateTime t1 = LocalDateTime.parse("2022-07-14T15:00:00");
-		when(pricesService.getPriceIntoHours(any())).thenReturn(emptyList);
-		ResponseEntity<List<PricesDTO>> re1 = pricesController.getByHourInterval(t1);
+		when(pricesService.getPriceIntoHours(t1,1L,35455L)).thenReturn(emptyList);
+		ResponseEntity<List<PricesDTO>> re1 = pricesController.getByHourInterval(t1,1L,35455L);
 		assertEquals(re1.getStatusCodeValue(),404);
 	}
 
@@ -50,8 +50,8 @@ class ControllerUnitaryTest {
 		ArrayList<PricesDTO> listWithPrice = new ArrayList<>();
 		listWithPrice.add(pricesDTO);
 		LocalDateTime time = LocalDateTime.parse("2020-07-14T15:00:00");
-		when(pricesService.getPriceIntoHours(time)).thenReturn(listWithPrice);
-		ResponseEntity<List<PricesDTO>> responseEntity = pricesController.getByHourInterval(time);
+		when(pricesService.getPriceIntoHours(time,1L,35455L)).thenReturn(listWithPrice);
+		ResponseEntity<List<PricesDTO>> responseEntity = pricesController.getByHourInterval(time,1L,35455L);
 		assertEquals(responseEntity.getStatusCodeValue(), 200);
 	}
 

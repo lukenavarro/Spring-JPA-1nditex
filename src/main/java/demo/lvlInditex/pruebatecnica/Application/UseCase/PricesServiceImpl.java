@@ -26,8 +26,8 @@ public class PricesServiceImpl implements PricesService {
     private final PricesDTOMapper pricesDTOMapper;
 
     @Override
-    public List<PricesDTO> getPriceIntoHours(LocalDateTime hour) {
-        List<Prices> pricesList =  pricesDAOMapper.priceDAOToListPrice(pricesRepository.findByHourIntoRange(hour));
+    public List<PricesDTO> getPriceIntoHours(LocalDateTime hour,Long brandID, Long productID) {
+        List<Prices> pricesList =  pricesDAOMapper.priceDAOToListPrice(pricesRepository.findByHourIntoRange(hour,brandID,productID));
         return pricesMapper.priceToListPriceDTO(pricesList.stream().max(Comparator.comparing(Prices::getPriority)).stream().collect(Collectors.toList()));
     }
 

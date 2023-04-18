@@ -8,6 +8,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface PricesController {
-    ResponseEntity<List<PricesDTO>> getByHourInterval(LocalDateTime hour);
+    ResponseEntity<List<PricesDTO>> getByHourInterval(LocalDateTime hour,Long brandID, Long productID);
     PricesDTO addNewPrices(PricesDTO pricesDTO);
 }

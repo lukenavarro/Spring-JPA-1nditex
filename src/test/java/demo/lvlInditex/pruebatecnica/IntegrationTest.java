@@ -7,7 +7,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -19,13 +18,13 @@ public class IntegrationTest {
 
     @Test
     void integrationTestCheckStatus() throws Exception{
-        mvc.perform(get("/api/prices/hour").param("hour","2020-07-14 15:00:00"))
+        mvc.perform(get("/api/prices/hour").param("hour","2020-07-14 15:00:00").param("brandID", String.valueOf(1L)).param("productID",String.valueOf(35455L)))
                 .andExpect(status().isOk());
     }
 
     @Test
     void integrationTestOption1()throws Exception{
-        mvc.perform(get("/api/prices/hour").param("hour","2020-06-14 10:00:00"))
+        mvc.perform(get("/api/prices/hour").param("hour","2020-06-14 10:00:00").param("brandID", String.valueOf(1L)).param("productID",String.valueOf(35455L)))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].BRAND_ID")
                         .value(1))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].START_DATE")
@@ -46,7 +45,7 @@ public class IntegrationTest {
 
     @Test
     void integrationTestOption2()throws Exception{
-        mvc.perform(get("/api/prices/hour").param("hour","2020-06-14 16:00:00"))
+        mvc.perform(get("/api/prices/hour").param("hour","2020-06-14 16:00:00").param("brandID", String.valueOf(1L)).param("productID",String.valueOf(35455L)))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].BRAND_ID")
                         .value(1))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].START_DATE")
@@ -67,7 +66,7 @@ public class IntegrationTest {
 
     @Test
     void integrationTestOption3()throws Exception{
-        mvc.perform(get("/api/prices/hour").param("hour","2020-06-14 21:00:00"))
+        mvc.perform(get("/api/prices/hour").param("hour","2020-06-14 21:00:00").param("brandID", String.valueOf(1L)).param("productID",String.valueOf(35455L)))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].BRAND_ID")
                         .value(1))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].START_DATE")
@@ -88,7 +87,7 @@ public class IntegrationTest {
 
     @Test
     void integrationTestOption4()throws Exception{
-        mvc.perform(get("/api/prices/hour").param("hour","2020-06-15 10:00:00"))
+        mvc.perform(get("/api/prices/hour").param("hour","2020-06-15 10:00:00").param("brandID", String.valueOf(1L)).param("productID",String.valueOf(35455L)))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].BRAND_ID")
                         .value(1))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].START_DATE")
@@ -109,7 +108,7 @@ public class IntegrationTest {
 
     @Test
     void integrationTestOption5()throws Exception{
-        mvc.perform(get("/api/prices/hour").param("hour","2020-06-16 21:00:00"))
+        mvc.perform(get("/api/prices/hour").param("hour","2020-06-16 21:00:00").param("brandID", String.valueOf(1L)).param("productID",String.valueOf(35455L)))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].BRAND_ID")
                         .value(1))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].START_DATE")

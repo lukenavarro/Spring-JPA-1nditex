@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface PricesRepository extends JpaRepository<PricesDAO,Long> {
-    @Query(value = "SELECT p FROM PRICES p WHERE :hour BETWEEN p.startDate AND p.endDate AND p.brandID=1 AND p.productID=35455")
-    List<PricesDAO> findByHourIntoRange(LocalDateTime hour);
+    @Query(value = "SELECT p FROM PRICES p WHERE :hour BETWEEN p.startDate AND p.endDate AND p.brandID=:brandID AND p.productID=:productID")
+    List<PricesDAO> findByHourIntoRange(LocalDateTime hour,Long brandID, Long productID);
 }

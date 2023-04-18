@@ -17,7 +17,7 @@ import java.util.List;
 public class H2PricesRepository implements PricesRepositoryOut {
 
     private PricesRepository pricesRepository;
-    public List<PricesDAO> findByHourIntoRange(LocalDateTime hour){
-        return pricesRepository.findByHourIntoRange(hour);
+    public List<PricesDAO> findByHourIntoRange(LocalDateTime hour, Long brandID, Long productID){
+        return pricesRepository.findByHourIntoRange(hour,brandID,productID);
     }
 }

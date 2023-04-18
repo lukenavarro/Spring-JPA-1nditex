@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface PricesService {
 
-    List<PricesDTO> getPriceIntoHours(LocalDateTime hour);
+    List<PricesDTO> getPriceIntoHours(LocalDateTime hour,Long brandID, Long productID);
 
     PricesDTO addNewPrices(PricesDTO pricesDTO);
 }

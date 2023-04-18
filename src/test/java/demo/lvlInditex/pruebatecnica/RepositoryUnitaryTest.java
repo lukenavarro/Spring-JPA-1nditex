@@ -38,15 +38,15 @@ class RepositoryUnitaryTest {
     void shouldNotWorkCauseEmptyList(){
         ArrayList<PricesDAO> emptyList = new ArrayList<>();
         LocalDateTime time = LocalDateTime.parse("2002-05-05T21:00:00");
-        when(pricesRepository.findByHourIntoRange(time)).thenReturn(emptyList);
-        assertEquals(emptyList, h2PricesRepository.findByHourIntoRange(time));
+        when(pricesRepository.findByHourIntoRange(time,1L,35455L)).thenReturn(emptyList);
+        assertEquals(emptyList, h2PricesRepository.findByHourIntoRange(time,1L,35455L));
     }
     @Test
     void shouldWorkCauseListWithResult(){
         ArrayList<PricesDAO> listResult = new ArrayList<>();
         listResult.add(pricesDAO);
         LocalDateTime time = LocalDateTime.parse("2020-07-15T19:05:06");
-        when(pricesRepository.findByHourIntoRange(time)).thenReturn(listResult);
-        assertEquals(listResult,h2PricesRepository.findByHourIntoRange(time));
+        when(pricesRepository.findByHourIntoRange(time,1L,35455L)).thenReturn(listResult);
+        assertEquals(listResult,h2PricesRepository.findByHourIntoRange(time,1L,35455L));
     }
 }

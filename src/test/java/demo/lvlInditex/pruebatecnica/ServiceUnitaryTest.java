@@ -46,9 +46,9 @@ class ServiceUnitaryTest {
     @Test
     void ShouldNotWorkCauseEmptyList(){
         List<PricesDTO> emptyList = new ArrayList<>();
-        LocalDateTime time = LocalDateTime.parse("2021-07-25T18:05:05");
-        when(pricesService.getPriceIntoHours(time)).thenReturn(emptyList);
-        assertEquals(emptyList,pricesService.getPriceIntoHours(time));
+        LocalDateTime time = LocalDateTime.parse("2022-07-25T18:05:05");
+        when(pricesService.getPriceIntoHours(time,1L,35455L)).thenReturn(emptyList);
+        assertEquals(emptyList,pricesService.getPriceIntoHours(time,1L,35455L));
     }
 
     @Test
@@ -56,7 +56,7 @@ class ServiceUnitaryTest {
         List<PricesDTO> resultList = new ArrayList<>();
         resultList.add(pricesDTO);
         LocalDateTime time = LocalDateTime.parse("2020-08-06T22:05:07");
-        when(pricesService.getPriceIntoHours(time)).thenReturn(resultList);
-        assertEquals(resultList,pricesService.getPriceIntoHours(time));
+        when(pricesService.getPriceIntoHours(time,1L,35455L)).thenReturn(resultList);
+        assertEquals(resultList,pricesService.getPriceIntoHours(time,1L,35455L));
     }
 }
