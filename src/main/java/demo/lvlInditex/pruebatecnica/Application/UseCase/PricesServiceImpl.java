@@ -1,7 +1,7 @@
 package demo.lvlInditex.pruebatecnica.Application.UseCase;
 
 import demo.lvlInditex.pruebatecnica.Infrastracture.DTO.PricesDTO;
-import demo.lvlInditex.pruebatecnica.Infrastracture.Mapper.PriceMapper;
+import demo.lvlInditex.pruebatecnica.Infrastracture.Mapper.PricesMapper;
 import demo.lvlInditex.pruebatecnica.Infrastracture.Mapper.PricesDAOMapper;
 import demo.lvlInditex.pruebatecnica.domain.UseCase.PricesService;
 import demo.lvlInditex.pruebatecnica.domain.model.entities.Prices;
@@ -19,11 +19,11 @@ import java.util.stream.Collectors;
 public class PricesServiceImpl implements PricesService {
     private final PricesRepository pricesRepository;
     private final PricesDAOMapper pricesDAOMapper;
-    private final PriceMapper priceMapper;
+    private final PricesMapper pricesMapper;
 
     @Override
-    public List<PricesDTO> getPriceIntoHours(LocalDateTime hora) {
-        List<Prices> listaPrices =  pricesDAOMapper.priceDAOToListPrice(pricesRepository.findByHourIntoRange(hora));
-        return priceMapper.priceToListPriceDTO(listaPrices.stream().max(Comparator.comparing(Prices::getPriority)).stream().collect(Collectors.toList()));
+    public List<PricesDTO> getPriceIntoHours(LocalDateTime hour) {
+        List<Prices> pricesList =  pricesDAOMapper.priceDAOToListPrice(pricesRepository.findByHourIntoRange(hour));
+        return pricesMapper.priceToListPriceDTO(pricesList.stream().max(Comparator.comparing(Prices::getPriority)).stream().collect(Collectors.toList()));
     }
 }

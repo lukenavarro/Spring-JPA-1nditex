@@ -8,5 +8,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PricesService {
-    List<PricesDTO> getPriceIntoHours(LocalDateTime hora);
+    List<PricesDTO> getPriceIntoHours(LocalDateTime hour);
 }

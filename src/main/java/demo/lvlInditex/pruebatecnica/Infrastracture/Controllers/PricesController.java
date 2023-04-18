@@ -7,5 +7,5 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface PricesController {
-    ResponseEntity<List<PricesDTO>> getByHourInterval(LocalDateTime hora);
+    ResponseEntity<List<PricesDTO>> getByHourInterval(LocalDateTime hour);
 }

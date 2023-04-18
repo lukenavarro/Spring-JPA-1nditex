@@ -16,13 +16,13 @@ import java.util.List;
 @AllArgsConstructor
 public class PricesControllerImpl implements PricesController{
     private final PricesService pricesService;
-    @GetMapping("/prices/hora")
-    public ResponseEntity<List<PricesDTO>> getByHourInterval(@RequestParam("hora") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime hora){
-        List<PricesDTO> lista = pricesService.getPriceIntoHours(hora);
-        if(lista.isEmpty()){
-            return new ResponseEntity<>(lista, HttpStatus.NOT_FOUND);
+    @GetMapping("/prices/hour")
+    public ResponseEntity<List<PricesDTO>> getByHourInterval(@RequestParam("hour") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime hour){
+        List<PricesDTO> list = pricesService.getPriceIntoHours(hour);
+        if(list.isEmpty()){
+            return new ResponseEntity<>(list, HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(lista, HttpStatus.OK);
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
 
